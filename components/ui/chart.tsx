@@ -296,7 +296,7 @@ function ChartLegendContent({
                 }}
               />
             )}
-            {itemConfig?.label}
+              {itemConfig?.label}
           </div>
         )
       })}
