@@ -21,7 +21,6 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   async (error) => {
     if (error.response) {
-      console.log("error",error);
       const { status, data } = error.response;
 
       let errorResp = { ...unhandledError };
@@ -30,37 +29,37 @@ axiosInstance.interceptors.response.use(
         case 400:
           errorResp = {
             ...errorResp,
-            detail: data.message || "Bad Request",
+            detail: data.detail || "Bad Request",
           };
           break;
         case 401:
           errorResp = {
             ...errorResp,
-            detail: data.message || "Unauthorized",
+            detail: data.detail || "Unauthorized",
           };
           break;
         case 402:
           errorResp = {
             ...errorResp,
-            detail: data.message || "Payment Required",
+            detail: data.detail || "Payment Required",
           };
           break;
         case 403:
           errorResp = {
             ...errorResp,
-            detail: data.message || "Forbidden",
+            detail: data.detail || "Forbidden",
           };
           break;
         case 404:
           errorResp = {
             ...errorResp,
-            detail: data.message || "Not Found",
+            detail: data.detail || "Not Found",
           };
           break;
         case 405:
           errorResp = {
             ...errorResp,
-            detail: data.message || "Method Not Allowed",
+            detail: data.detail || "Method Not Allowed",
           };
           break;
         case 408:
