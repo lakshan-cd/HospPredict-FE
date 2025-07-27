@@ -344,7 +344,7 @@ export function TrendGraph({ companyId }: { companyId: string }) {
               stackId="a"
               name={selectedMetric1}
             />
-            <ChartLegend content={<ChartLegendContent />} />
+            {/* <ChartLegend content={<ChartLegendContent />} /> */}
           </AreaChart>
         </ChartContainer>
       </CardContent>
