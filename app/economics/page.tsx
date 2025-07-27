@@ -1,9 +1,13 @@
-const EconomicsPage = ()=> {
+import ViewAllCompanies from "../financials/components/view-all-companies";
+
+const Page = ()=> {
     return (
-        <div>
-            <h1>Economics</h1>
+        <>
+        <div className="px-4 sm:px-4 md:px-8 lg:px-16 my-12">
+            <ViewAllCompanies page="economics" />
         </div>
+</>
     )
 }
 
-export default EconomicsPage;
+export default Page;
