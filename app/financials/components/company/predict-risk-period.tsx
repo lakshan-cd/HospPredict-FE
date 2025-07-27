@@ -33,8 +33,8 @@ export const PredictRiskPeriod = ({companyId}: {companyId: string}) => {
         fetchData()
     }, [])
     const handlePredict = async () => {
-        setIsLoading(true)
         setPredictedRisk("")
+        setIsLoading(true)
         if (!selectedPeriod) {
             setShowRequired(true)
         } else {
@@ -140,7 +140,7 @@ export const PredictRiskPeriod = ({companyId}: {companyId: string}) => {
                         <div className="border-b-2 border-primary-foreground w-full my-2"></div>
                         <div className="flex flex-col gap-2 items-center justify-center py-4">
                             <div className="flex gap-2 items-center">
-                                <TypographyH3>Predicted Risk - </TypographyH3>
+                                <TypographyH3>Predicted Risk : </TypographyH3>
                                 <TypographyH3 className={`${parseFloat(predictedRisk) >= 0.8 ? "text-red-500" : parseFloat(predictedRisk) >= 0.5 ? "text-orange-500" : parseFloat(predictedRisk) >= 0.2 ? "text-yellow-500" : "text-green-500"}`}>{predictedRisk}</TypographyH3>
                             </div>
                             {(() => {
