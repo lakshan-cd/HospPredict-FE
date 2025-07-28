@@ -72,7 +72,7 @@ export const PredictRiskMetric = ({companyId}: {companyId: string}) => {
     };
       
     const handlePredict = async () => {
-        console.log(selectedPeriod, metricRows)
+      setPredictedRiskResult(null)
       if (!selectedPeriod || metricRows.length === 0) {
         if (!selectedPeriod) {
             setErrMsg([...errMsg, { field: "period", msg: "Please select a period." }]);
@@ -103,7 +103,6 @@ export const PredictRiskMetric = ({companyId}: {companyId: string}) => {
       }
     }
 
-    console.log(predictedRiskResult)
     return (
             <>
             <Card>
@@ -177,7 +176,9 @@ export const PredictRiskMetric = ({companyId}: {companyId: string}) => {
                             <SelectValue placeholder="Select a metric" />
                           </SelectTrigger>
                           <SelectContent>
-                            {availableMetrics.map((metric) => (
+                            {availableMetrics
+                            .sort((a, b) => a.localeCompare(b))
+                            .map((metric) => (
                               <SelectItem key={metric} value={metric}>{metric}</SelectItem>
                             ))}
                           </SelectContent>
