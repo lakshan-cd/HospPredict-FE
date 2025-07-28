@@ -58,30 +58,32 @@ export const PredictRiskPeriod = ({companyId}: {companyId: string}) => {
     function getRiskInfo(score: number) {
       if (score >= 0.8) {
         return {
-          label: "Very High Influence",
+          label: "Very High Risk",
           color: "text-red-600 bg-red-100 border-red-300",
-          description: "This metric is showing a very strong influence on recent share-price declines. Immediate attention is warranted."
+          description: "Significant risk of share-price decline expected next quarter. Immediate strategic review is strongly recommended."
         };
       } else if (score >= 0.5) {
         return {
-          label: "Moderate Influence",
+          label: "Moderate Risk",
           color: "text-orange-600 bg-orange-100 border-orange-300",
-          description: " This factor has a meaningful influence on share-price performance. Keep a close watch and evaluate hedging or defensive actions."
+          description: "Notable downside risk projected for the next quarter. Monitor closely and consider protective measures."
         };
       } else if (score >= 0.2) {
         return {
-          label: "Low Influence",
+          label: "Low Risk",
           color: "text-yellow-700 bg-yellow-100 border-yellow-300",
-          description: "This metric currently plays a limited role in predicting price declines. Review periodically but no urgent action needed."
+          description: "Minor potential for share-price weakness in the upcoming quarter. Maintain awareness but no immediate action required."
         };
       } else {
         return {
-          label: "Negligible Influence",
+          label: "Minimal Risk",
           color: "text-green-700 bg-green-100 border-green-300",
-          description: "This metric has a negligible impact on current market risk. No action needed."
+          description: "Limited evidence of downside risk next quarter. No specific action necessary at this time."
         };
       }
     }
+    
+    
     return (
         <>
         <Card>
