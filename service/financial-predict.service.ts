@@ -39,3 +39,16 @@ export const getAllCompanyPeriods = async (companyId: string) => {
       throw error;
     }
   }
+
+  export const predictNewCompanyData = async (obj: any) => {
+    try {
+      const response = await axiosInstance.post(
+        `predict-new-data`,
+        obj
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
