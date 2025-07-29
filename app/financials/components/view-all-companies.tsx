@@ -5,12 +5,18 @@ import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { getAllCompanies } from "@/service/financial.service";
 import { getAllEconomicsCompanies } from "@/service/macro-economics.service";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { Building2, TrendingUp, DollarSign, BarChart3, Factory, ShoppingCart, Car, Plane, Ship, Wifi, Zap, Leaf, Heart, Shield } from "lucide-react";
 
-const ViewAllCompanies = ({page}: {page: string}) => {
+const ViewAllCompanies = ({page , hotels}: {page: string , hotels?: {id: string , name: string}[]}) => {
     const [companies, setCompanies] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    useEffect(() => {
+        if(hotels && page === "news"){
+            setCompanies(hotels);
+        }
+    }, [hotels]);
 
     // Function to get appropriate icon based on company name
     const getCompanyIcon = (companyName: string) => {
@@ -62,7 +68,6 @@ const ViewAllCompanies = ({page}: {page: string}) => {
         fetchCompanies();
     }, []);
 
-    console.log(companies);
     return (
         <div>
             <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance mb-8 text-primary">
