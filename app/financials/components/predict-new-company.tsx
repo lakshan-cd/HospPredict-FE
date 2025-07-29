@@ -332,7 +332,7 @@ export const PredictNewCompany = () => {
 
             {/* Progress Indicator */}
             {isLoading && (
-                <Card>
+                <Card >
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
                             <Building2 className="w-5 h-5" />
