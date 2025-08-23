@@ -227,7 +227,9 @@ export function TrendGraph({ companyId }: { companyId: string }) {
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            {metrics.map(metric => (
+            {metrics
+            .sort((a, b) => a.localeCompare(b))
+            .map(metric => (
               <SelectItem key={metric} value={metric}>{metric}</SelectItem>
             ))}
           </SelectContent>
@@ -237,7 +239,9 @@ export function TrendGraph({ companyId }: { companyId: string }) {
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            {metrics.map(metric => (
+            {metrics
+            .sort((a, b) => a.localeCompare(b))
+            .map(metric => (
               <SelectItem key={metric} value={metric}>{metric}</SelectItem>
             ))}
           </SelectContent>
@@ -344,7 +348,7 @@ export function TrendGraph({ companyId }: { companyId: string }) {
               stackId="a"
               name={selectedMetric1}
             />
-            <ChartLegend content={<ChartLegendContent />} />
+            {/* <ChartLegend content={<ChartLegendContent />} /> */}
           </AreaChart>
         </ChartContainer>
       </CardContent>

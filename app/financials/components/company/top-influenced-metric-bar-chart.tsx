@@ -42,7 +42,7 @@ export function TopInfluencedMetricBarChart({data}: {data: any[]}) {
         <CardDescription>Feature importance for this prediction</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+        <ChartContainer config={chartConfig} className="aspect-auto h-[350px] w-full">
           <BarChart accessibilityLayer data={chartData} height={100} width={100}>
             <CartesianGrid vertical={false} />
             <XAxis

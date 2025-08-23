@@ -133,7 +133,9 @@ export const QoQChanges = ({ companyId }: { companyId: string }) => {
                   <SelectValue placeholder="Select a metric" />
                 </SelectTrigger>
                 <SelectContent>
-                  {metrics.map((metric) => (
+                  {metrics
+                  .sort((a, b) => a.localeCompare(b))
+                  .map((metric) => (
                     <SelectItem key={metric} value={metric}>
                       {metric}
                     </SelectItem>
